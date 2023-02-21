@@ -1,0 +1,59 @@
+:root {
+    --color-1: #7b8d78;
+    --color-2: #ffffff;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: sans-serif, Arial, Helvetica;
+}
+
+body {
+    background-image: url('/images/prism.png');
+    background-size: cover;
+}
+
+
+/* header start*/
+
+#header {
+    width: 100%;
+    height: 40px;
+    background-color: var(--color-1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 160px;
+    height: 100;
+}
+.logo {
+    height: 30px;
+    margin-bottom: 5px;
+}
+.logo-name {
+    font-size: 30px;
+    font-weight: 200;
+}
+.header-menu-icon {
+    color: black;
+}
+
+/* header end */
+
+/* Title Area */
+
+#options-container {
+    width: 100%;
+    background-color: var(--color-2);
+    
+}
+
+/* Title Area end */
