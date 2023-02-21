@@ -15,6 +15,10 @@ body {
     background-size: cover;
 }
 
+.container {
+    margin-top: 40px; 
+}
+
 
 /* header start*/
 
@@ -57,3 +61,7 @@ body {
 }
 
 /* Title Area end */
+
+#scorecard {
+    background-color: white;
+}
