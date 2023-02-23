@@ -17,6 +17,7 @@ body {
 
 .container {
     margin-top: 40px; 
+    background-color: var(--color-2);
 }
 
 
@@ -36,7 +37,7 @@ body {
     align-items: center;
     justify-content: space-between;
     width: 160px;
-    height: 100;
+    height: 100%;
 }
 .logo {
     height: 30px;
@@ -45,6 +46,7 @@ body {
 .logo-name {
     font-size: 30px;
     font-weight: 200;
+    margin-top: 7px;
 }
 .header-menu-icon {
     color: black;
@@ -52,16 +54,77 @@ body {
 
 /* header end */
 
-/* Title Area */
-
-#options-container {
-    width: 100%;
-    background-color: var(--color-2);
-    
+/* front title area */
+#course-title {
+   width: 100%;
+   display: flex;
+   justify-content: center;
+   font-size: 40px;
+   margin-top: 10px;
 }
 
-/* Title Area end */
+.card-title-container {
+    width: 100%;
+    background-color: var(--color-2);
+}
+.front-title {
+    font-size: 30px;
+}
+#course-title {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    font-size: 40px;
+ }
+ 
+ .card-title-container {
+     width: 100%;
+     background-color: var(--color-2);
+ }
+ #tee-title {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+ }
+
+/* front title area end */
+
+/* front table area */
 
 #scorecard {
     background-color: white;
 }
+.table-1{
+    display:flex;
+    justify-content: space-between;
+}
+.player-input {
+    margin-left: 10px;
+}
+
+/* front table area end */
+
+/* back title area */
+
+.back-title {
+    font-size: 30px;
+}
+
+/* back title area end */
+
+/* back table area */
+
+
+
+/* back table area end */
+
+/* footer */
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+/* footer end */
