@@ -1,82 +1,99 @@
 
-// select course function
+// pull from api function
 
-const point = 'http://uxcobra.com/golfapi/course11819.txt'
-const hollow = 'http://uxcobra.com/golfapi/course18300.txt'
-const oaks = 'http://uxcobra.com/golfapi/course19002.txt'
+async function loadCourse() {
+    return (await fetch(url)).json();
+};
+// pull from api function end
+
+// select course functions
+
+const point = 'http://uxcobra.com/golfapi/course11819.txt';
+const hollow = 'http://uxcobra.com/golfapi/course18300.txt';
+const oaks = 'http://uxcobra.com/golfapi/course19002.txt';
 let url;
-const select = document.getElementById('course-select')
-select.addEventListener('change', courseSelect) 
+const select = document.getElementById('course-select');
+select.addEventListener('change', courseSelect) ;
 
 function courseSelect() {
-const courseTitle = document.getElementById('course-title')
+const courseTitle = document.getElementById('course-title');
 courseTitle.innerHTML = select.value; 
 if (select.value === 'Thanksgiving Point') url = point;
 else if (select.value === 'Fox Hollow') url = hollow;
 else if (select.value === 'Spanish Oaks') url = oaks;
-getTee()
-render()
-}
+getTee();
+};
 
-// select course function end
+// select course functions end
 
-// select tee function
+// select tee functions
 
 let teeHTML = `
 <select class="form-control" id="tee-select" onchange="teeSelect(this.id)">
     <option value="initial">--Select a Tee Box--</option>
-` 
+`; 
 
 async function getTee(){
-    
     let course;
     try {
         course = await loadCourse();
     }catch (error) {
         console.log(`ERROR: ${error}`);
-    }
-
-    console.log(course.data.holes[0].teeBoxes)
+    };
+    console.log(course.data.holes);
+    console.log(course.data.holes[0].teeBoxes);
     course.data.holes[0].teeBoxes.forEach(tee => {
         if (tee.teeColorType !== null) {
             teeHTML += `<option value="${tee.teeColorType}">${tee.teeColorType}</option>`
-        }
-        
-    })
-    teeHTML += `</select>`
-    document.getElementById('tee-title').innerHTML = teeHTML
-}
+        };
+         
+    });
+    teeHTML += `</select>`;
+    document.getElementById('tee-title').innerHTML = teeHTML;
+};
 
 function teeSelect(clickedId) {
-    const teeTitle = document.getElementById('tee-title')
+    const teeTitle = document.getElementById('tee-title');
     teeTitle.innerHTML = "Tee Box: " + document.getElementById(clickedId).value; 
-    }
+    populate();
+    let color = clickedId;
+    return color;
+    };
 
-// select tee function end
+// select tee functions end
 
+// populate card functions
 
-
-
-let holes = []
-
-async function loadCourse() {
-    return (await fetch(url)).json();
-}
-
-// render function
-async function render() {
+async function populate() {
     let course;
     try {
         course = await loadCourse();
     }catch (error) {
         console.log(`ERROR: ${error}`);
     }
-    console.log(course.data.holes)
-    // splitting up the data
-    
+
+    // loop through holes and add info to each dom section
+    course.data.holes.forEach(hole => {
+        hole.teeBoxes.forEach(box => {
+            if (box.teeColorType === color) {
+                
+            }
+        })
+
+    })
+
+
 }
 
-// render function end
+// populate card functions end
+
+
+
+
+
+
+
+
 
 // action functions
 
