@@ -98,8 +98,12 @@ body {
     display:flex;
     justify-content: space-between;
 }
-.player-input {
-    margin-left: 10px;
+.player-score {
+    padding: 0 !important;
+    max-width: 50px;
+}
+.number-input {
+    border: none;
 }
 
 /* front table area end */

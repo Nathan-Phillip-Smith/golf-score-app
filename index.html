@@ -71,81 +71,94 @@
                           <tbody>
                             <tr>
                               <th scope="row">Yardage</th>
-                              <td id="h1y">-</td>
-                              <td>-</td>
-                              <td>-</td>
-                              <td>-</td>
-                              <td>-</td>
-                              <td>-</td>
-                              <td>-</td>
-                              <td>-</td>
-                              <td>-</td>
-                              <td>-</td>
+                              <td id="y1">-</td>
+                              <td id="y2">-</td>
+                              <td id="y3">-</td>
+                              <td id="y4">-</td>
+                              <td id="y5">-</td>
+                              <td id="y6">-</td>
+                              <td id="y7">-</td>
+                              <td id="y8">-</td>
+                              <td id="y9">-</td>
+                              <td id="yout">-</td>
                             </tr>
                             <tr>
                                 <th scope="row">Par</th>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>-</td>
+                                <td id="p1">-</td>
+                                <td id="p2">-</td>
+                                <td id="p3">-</td>
+                                <td id="p4">-</td>
+                                <td id="p5">-</td>
+                                <td id="p6">-</td>
+                                <td id="p7">-</td>
+                                <td id="p8">-</td>
+                                <td id="p9">-</td>
+                                <td id="pout">-</td>
                               </tr>
                               <tr>
                                 <th scope="row">Handicap</th>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>-</td>
+                                <td id="h1">-</td>
+                                <td id="h2">-</td>
+                                <td id="h3">-</td>
+                                <td id="h4">-</td>
+                                <td id="h5">-</td>
+                                <td id="h6">-</td>
+                                <td id="h7">-</td>
+                                <td id="h8">-</td>
+                                <td id="h9">-</td>
+                                <td id="hout">-</td>
                               </tr>
                               <tr>
                                 <th id="player1" scope="row"><i class="bi bi-person-plus" onclick="addPlayer(this.id)"></i></th>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                                <td class="player-score"><input id="pl11" class="number-input form-control" type="number" onchange="addScore()"></td>
+                                <td class="player-score"><input id="pl12" class="number-input form-control" type="number" onchange="addScore()"></td>
+                                <td class="player-score"><input id="pl13" class="number-input form-control" type="number" onchange="addScore()"></td>
+                                <td class="player-score"><input id="pl14" class="number-input form-control" type="number" onchange="addScore()"></td>
+                                <td class="player-score"><input id="pl15" class="number-input form-control" type="number" onchange="addScore()"></td>
+                                <td class="player-score"><input id="pl16" class="number-input form-control" type="number" onchange="addScore()"></td>
+                                <td class="player-score"><input id="pl17" class="number-input form-control" type="number" onchange="addScore()"></td>
+                                <td class="player-score"><input id="pl18" class="number-input form-control" type="number" onchange="addScore()"></td>
+                                <td class="player-score"><input id="pl19" class="number-input form-control" type="number" onchange="addScore()"></td>
+                                <td id="pl1out"></td>
                               </tr>
                               <tr>
                                 <th id="player2" scope="row"><i class="bi bi-person-plus" onclick="addPlayer(this.id)"></i></th>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                                <td class="player-score"><input id="pl21" class="number-input form-control" type="number" onchange="addScore()"></td>
+                                <td class="player-score"><input id="pl22" class="number-input form-control" type="number" onchange="addScore()"></td>
+                                <td class="player-score"><input id="pl23" class="number-input form-control" type="number" onchange="addScore()"></td>
+                                <td class="player-score"><input id="pl24" class="number-input form-control" type="number" onchange="addScore()"></td>
+                                <td class="player-score"><input id="pl25" class="number-input form-control" type="number" onchange="addScore()"></td>
+                                <td class="player-score"><input id="pl26" class="number-input form-control" type="number" onchange="addScore()"></td>
+                                <td class="player-score"><input id="pl27" class="number-input form-control" type="number" onchange="addScore()"></td>
+                                <td class="player-score"><input id="pl28" class="number-input form-control" type="number" onchange="addScore()"></td>
+                                <td class="player-score"><input id="pl29" class="number-input form-control" type="number" onchange="addScore()"></td>
+                                <td id="pl2out"></td>
                               </tr>
                               <tr>
                                 <th id="player3" scope="row"><i class="bi bi-person-plus"></i></th>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                                <td class="player-score"><input id="pl31" class="number-input form-control" type="number" onchange="addScore()"></td>
+                                <td class="player-score"><input id="pl32" class="number-input form-control" type="number" onchange="addScore()"></td>
+                                <td class="player-score"><input id="pl33" class="number-input form-control" type="number" onchange="addScore()"></td>
+                                <td class="player-score"><input id="pl34" class="number-input form-control" type="number" onchange="addScore()"></td>
+                                <td class="player-score"><input id="pl35" class="number-input form-control" type="number" onchange="addScore()"></td>
+                                <td class="player-score"><input id="pl36" class="number-input form-control" type="number" onchange="addScore()"></td>
+                                <td class="player-score"><input id="pl37" class="number-input form-control" type="number" onchange="addScore()"></td>
+                                <td class="player-score"><input id="pl38" class="number-input form-control" type="number" onchange="addScore()"></td>
+                                <td class="player-score"><input id="pl39" class="number-input form-control" type="number" onchange="addScore()"></td>
+                                <td id="pl3out"></td>
+                              </tr>
+                              <tr>
+                                <th id="player4" scope="row"><i class="bi bi-person-plus"></i></th>
+                                <td class="player-score"><input id="pl41" class="number-input form-control" type="number" onchange="addScore()"></td>
+                                <td class="player-score"><input id="pl42" class="number-input form-control" type="number" onchange="addScore()"></td>
+                                <td class="player-score"><input id="pl43" class="number-input form-control" type="number" onchange="addScore()"></td>
+                                <td class="player-score"><input id="pl44" class="number-input form-control" type="number" onchange="addScore()"></td>
+                                <td class="player-score"><input id="pl45" class="number-input form-control" type="number" onchange="addScore()"></td>
+                                <td class="player-score"><input id="pl46" class="number-input form-control" type="number" onchange="addScore()"></td>
+                                <td class="player-score"><input id="pl47" class="number-input form-control" type="number" onchange="addScore()"></td>
+                                <td class="player-score"><input id="pl48" class="number-input form-control" type="number" onchange="addScore()"></td>
+                                <td class="player-score"><input id="pl49" class="number-input form-control" type="number" onchange="addScore()"></td>
+                                <td id="pl4out"></td>
                               </tr>
                           </tbody>
                     </table>
@@ -182,87 +195,101 @@
                           <tbody>
                             <tr>
                               <th scope="row">Yardage</th>
-                              <td>-</td>
-                              <td>-</td>
-                              <td>-</td>
-                              <td>-</td>
-                              <td>-</td>
-                              <td>-</td>
-                              <td>-</td>
-                              <td>-</td>
-                              <td>-</td>
-                              <td>-</td>
-                              <td>-</td>
+                              <td id="y10">-</td>
+                              <td id="y11">-</td>
+                              <td id="y12">-</td>
+                              <td id="y13">-</td>
+                              <td id="y14">-</td>
+                              <td id="y15">-</td>
+                              <td id="y16">-</td>
+                              <td id="y17">-</td>
+                              <td id="y18">-</td>
+                              <td id="yin">-</td>
+                              <td id="ytotal">-</td>
                             </tr>
                             <tr>
                                 <th scope="row">Par</th>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>-</td>
+                                <td id="p10">-</td>
+                                <td id="p11">-</td>
+                                <td id="p12">-</td>
+                                <td id="p13">-</td>
+                                <td id="p14">-</td>
+                                <td id="p15">-</td>
+                                <td id="p16">-</td>
+                                <td id="p17">-</td>
+                                <td id="p18">-</td>
+                                <td id="pin">-</td>
+                                <td id="ptotal">-</td>
                               </tr>
                               <tr>
                                 <th scope="row">Handicap</th>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>-</td>
+                                <td id="h10">-</td>
+                                <td id="h11">-</td>
+                                <td id="h12">-</td>
+                                <td id="h13">-</td>
+                                <td id="h14">-</td>
+                                <td id="h15">-</td>
+                                <td id="h16">-</td>
+                                <td id="h17">-</td>
+                                <td id="h18">-</td>
+                                <td id="hin">-</td>
+                                <td id="htotal">-</td>
                               </tr>
                               <tr>
                                 <th id="player1" scope="row"><i class="bi bi-person-plus"></i></th>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                                <td class="player-score"><input id="pl110" class="number-input form-control" type="number" onchange="addScore()"></td>
+                                <td class="player-score"><input id="pl111" class="number-input form-control" type="number"></td>
+                                <td class="player-score"><input id="pl112" class="number-input form-control" type="number"></td>
+                                <td class="player-score"><input id="pl113" class="number-input form-control" type="number"></td>
+                                <td class="player-score"><input id="pl114" class="number-input form-control" type="number"></td>
+                                <td class="player-score"><input id="pl115" class="number-input form-control" type="number"></td>
+                                <td class="player-score"><input id="pl116" class="number-input form-control" type="number"></td>
+                                <td class="player-score"><input id="pl117" class="number-input form-control" type="number"></td>
+                                <td class="player-score"><input id="pl118" class="number-input form-control" type="number"></td>
+                                <td id="pl1in"></td>
+                                <td id="pl1total"></td>
                               </tr>
                               <tr>
                                 <th id="player2" scope="row"><i class="bi bi-person-plus"></i></th>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                                <td class="player-score"><input id="pl210" class="number-input form-control" type="number"></td>
+                                <td class="player-score"><input id="pl211" class="number-input form-control" type="number"></td>
+                                <td class="player-score"><input id="pl212" class="number-input form-control" type="number"></td>
+                                <td class="player-score"><input id="pl213" class="number-input form-control" type="number"></td>
+                                <td class="player-score"><input id="pl214" class="number-input form-control" type="number"></td>
+                                <td class="player-score"><input id="pl215" class="number-input form-control" type="number"></td>
+                                <td class="player-score"><input id="pl216" class="number-input form-control" type="number"></td>
+                                <td class="player-score"><input id="pl217" class="number-input form-control" type="number"></td>
+                                <td class="player-score"><input id="pl218" class="number-input form-control" type="number"></td>
+                                <td id="pl2in"></td>
+                                <td id="pl2total"></td>
                               </tr>
                               <tr>
                                 <th id="player3" scope="row"><i class="bi bi-person-plus"></i></th>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                                <td class="player-score"><input id="pl310" class="number-input form-control" type="number"></td>
+                                <td class="player-score"><input id="pl311" class="number-input form-control" type="number"></td>
+                                <td class="player-score"><input id="pl312" class="number-input form-control" type="number"></td>
+                                <td class="player-score"><input id="pl313" class="number-input form-control" type="number"></td>
+                                <td class="player-score"><input id="pl314" class="number-input form-control" type="number"></td>
+                                <td class="player-score"><input id="pl315" class="number-input form-control" type="number"></td>
+                                <td class="player-score"><input id="pl316" class="number-input form-control" type="number"></td>
+                                <td class="player-score"><input id="pl317" class="number-input form-control" type="number"></td>
+                                <td class="player-score"><input id="pl318" class="number-input form-control" type="number"></td>
+                                <td id="pl3in"></td>
+                                <td id="pl3total"></td>
+                              </tr>
+                              <tr>
+                                <th id="player4" scope="row"><i class="bi bi-person-plus"></i></th>
+                                <td class="player-score"><input id="pl410" class="number-input form-control" type="number"></td>
+                                <td class="player-score"><input id="pl411" class="number-input form-control" type="number"></td>
+                                <td class="player-score"><input id="pl412" class="number-input form-control" type="number"></td>
+                                <td class="player-score"><input id="pl413" class="number-input form-control" type="number"></td>
+                                <td class="player-score"><input id="pl414" class="number-input form-control" type="number"></td>
+                                <td class="player-score"><input id="pl415" class="number-input form-control" type="number"></td>
+                                <td class="player-score"><input id="pl416" class="number-input form-control" type="number"></td>
+                                <td class="player-score"><input id="pl417" class="number-input form-control" type="number"></td>
+                                <td class="player-score"><input  id="pl418"class="number-input form-control" type="number"></td>
+                                <td id="pl4in"></td>
+                                <td id="pl4total"></td>
                               </tr>
                           </tbody>
                     </table>
