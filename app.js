@@ -203,8 +203,11 @@ async function calcTotal(){
 
 // action functions
 
-function addPlayer() {
-
+function addPlayer(clickedId) {
+    let player = document.getElementById(clickedId + 't')
+    let name = document.getElementById(clickedId).value
+    player.innerHTML = name;
+    player.classList.remove('player-score')
 }
 
 function addScore() {

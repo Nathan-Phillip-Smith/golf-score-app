@@ -109,7 +109,7 @@
                                 <td id="hout">-</td>
                               </tr>
                               <tr>
-                                <th id="player1" scope="row"><i class="bi bi-person-plus" onclick="addPlayer(this.id)"></i></th>
+                                <th class="player-score" id="player1t" scope="row"><input id="player1" class="player-input form-control" type="text" placeholder="Name" onchange="addPlayer(this.id)"></th>
                                 <td class="player-score"><input id="pl11" class="number-input form-control" type="number" onchange="addScore()"></td>
                                 <td class="player-score"><input id="pl12" class="number-input form-control" type="number" onchange="addScore()"></td>
                                 <td class="player-score"><input id="pl13" class="number-input form-control" type="number" onchange="addScore()"></td>
@@ -122,7 +122,7 @@
                                 <td id="pl1out"></td>
                               </tr>
                               <tr>
-                                <th id="player2" scope="row"><i class="bi bi-person-plus" onclick="addPlayer(this.id)"></i></th>
+                                <th class="player-score" id="player2t" scope="row"><input id="player2" class="player-input form-control" type="text" placeholder="Name" onchange="addPlayer(this.id)"></th>
                                 <td class="player-score"><input id="pl21" class="number-input form-control" type="number" onchange="addScore()"></td>
                                 <td class="player-score"><input id="pl22" class="number-input form-control" type="number" onchange="addScore()"></td>
                                 <td class="player-score"><input id="pl23" class="number-input form-control" type="number" onchange="addScore()"></td>
@@ -135,7 +135,7 @@
                                 <td id="pl2out"></td>
                               </tr>
                               <tr>
-                                <th id="player3" scope="row"><i class="bi bi-person-plus"></i></th>
+                                <th class="player-score" id="player3t" scope="row"><input id="player3" class="player-input form-control" type="text" placeholder="Name" onchange="addPlayer(this.id)"></th>
                                 <td class="player-score"><input id="pl31" class="number-input form-control" type="number" onchange="addScore()"></td>
                                 <td class="player-score"><input id="pl32" class="number-input form-control" type="number" onchange="addScore()"></td>
                                 <td class="player-score"><input id="pl33" class="number-input form-control" type="number" onchange="addScore()"></td>
@@ -148,7 +148,7 @@
                                 <td id="pl3out"></td>
                               </tr>
                               <tr>
-                                <th id="player4" scope="row"><i class="bi bi-person-plus"></i></th>
+                                <th class="player-score" id="player4t" scope="row"><input id="player4" class="player-input form-control" type="text" placeholder="Name" onchange="addPlayer(this.id)"></th>
                                 <td class="player-score"><input id="pl41" class="number-input form-control" type="number" onchange="addScore()"></td>
                                 <td class="player-score"><input id="pl42" class="number-input form-control" type="number" onchange="addScore()"></td>
                                 <td class="player-score"><input id="pl43" class="number-input form-control" type="number" onchange="addScore()"></td>
@@ -236,58 +236,58 @@
                                 <td id="htotal">-</td>
                               </tr>
                               <tr>
-                                <th id="player1" scope="row"><i class="bi bi-person-plus"></i></th>
+                                <th class="player-score" id="player11t" scope="row"><input id="player11" class="player-input form-control" type="text" placeholder="Name" onchange="addPlayer(this.id)"></th>
                                 <td class="player-score"><input id="pl110" class="number-input form-control" type="number" onchange="addScore()"></td>
-                                <td class="player-score"><input id="pl111" class="number-input form-control" type="number"></td>
-                                <td class="player-score"><input id="pl112" class="number-input form-control" type="number"></td>
-                                <td class="player-score"><input id="pl113" class="number-input form-control" type="number"></td>
-                                <td class="player-score"><input id="pl114" class="number-input form-control" type="number"></td>
-                                <td class="player-score"><input id="pl115" class="number-input form-control" type="number"></td>
-                                <td class="player-score"><input id="pl116" class="number-input form-control" type="number"></td>
-                                <td class="player-score"><input id="pl117" class="number-input form-control" type="number"></td>
-                                <td class="player-score"><input id="pl118" class="number-input form-control" type="number"></td>
+                                <td class="player-score"><input id="pl111" class="number-input form-control" type="number" onchange="addScore()"></td>
+                                <td class="player-score"><input id="pl112" class="number-input form-control" type="number" onchange="addScore()"></td>
+                                <td class="player-score"><input id="pl113" class="number-input form-control" type="number" onchange="addScore()"></td>
+                                <td class="player-score"><input id="pl114" class="number-input form-control" type="number" onchange="addScore()"></td>
+                                <td class="player-score"><input id="pl115" class="number-input form-control" type="number" onchange="addScore()"></td>
+                                <td class="player-score"><input id="pl116" class="number-input form-control" type="number" onchange="addScore()"></td>
+                                <td class="player-score"><input id="pl117" class="number-input form-control" type="number" onchange="addScore()"></td>
+                                <td class="player-score"><input id="pl118" class="number-input form-control" type="number" onchange="addScore()"></td>
                                 <td id="pl1in"></td>
                                 <td id="pl1total"></td>
                               </tr>
                               <tr>
-                                <th id="player2" scope="row"><i class="bi bi-person-plus"></i></th>
-                                <td class="player-score"><input id="pl210" class="number-input form-control" type="number"></td>
-                                <td class="player-score"><input id="pl211" class="number-input form-control" type="number"></td>
-                                <td class="player-score"><input id="pl212" class="number-input form-control" type="number"></td>
-                                <td class="player-score"><input id="pl213" class="number-input form-control" type="number"></td>
-                                <td class="player-score"><input id="pl214" class="number-input form-control" type="number"></td>
-                                <td class="player-score"><input id="pl215" class="number-input form-control" type="number"></td>
-                                <td class="player-score"><input id="pl216" class="number-input form-control" type="number"></td>
-                                <td class="player-score"><input id="pl217" class="number-input form-control" type="number"></td>
-                                <td class="player-score"><input id="pl218" class="number-input form-control" type="number"></td>
+                                <th class="player-score" id="player12t" scope="row"><input id="player12" class="player-input form-control" type="text" placeholder="Name" onchange="addPlayer(this.id)"></th>
+                                <td class="player-score"><input id="pl210" class="number-input form-control" type="number" onchange="addScore()"></td>
+                                <td class="player-score"><input id="pl211" class="number-input form-control" type="number" onchange="addScore()"></td>
+                                <td class="player-score"><input id="pl212" class="number-input form-control" type="number" onchange="addScore()"></td>
+                                <td class="player-score"><input id="pl213" class="number-input form-control" type="number" onchange="addScore()"></td>
+                                <td class="player-score"><input id="pl214" class="number-input form-control" type="number" onchange="addScore()"></td>
+                                <td class="player-score"><input id="pl215" class="number-input form-control" type="number" onchange="addScore()"></td>
+                                <td class="player-score"><input id="pl216" class="number-input form-control" type="number" onchange="addScore()"></td>
+                                <td class="player-score"><input id="pl217" class="number-input form-control" type="number" onchange="addScore()"></td>
+                                <td class="player-score"><input id="pl218" class="number-input form-control" type="number" onchange="addScore()"></td>
                                 <td id="pl2in"></td>
                                 <td id="pl2total"></td>
                               </tr>
                               <tr>
-                                <th id="player3" scope="row"><i class="bi bi-person-plus"></i></th>
-                                <td class="player-score"><input id="pl310" class="number-input form-control" type="number"></td>
-                                <td class="player-score"><input id="pl311" class="number-input form-control" type="number"></td>
-                                <td class="player-score"><input id="pl312" class="number-input form-control" type="number"></td>
-                                <td class="player-score"><input id="pl313" class="number-input form-control" type="number"></td>
-                                <td class="player-score"><input id="pl314" class="number-input form-control" type="number"></td>
-                                <td class="player-score"><input id="pl315" class="number-input form-control" type="number"></td>
-                                <td class="player-score"><input id="pl316" class="number-input form-control" type="number"></td>
-                                <td class="player-score"><input id="pl317" class="number-input form-control" type="number"></td>
-                                <td class="player-score"><input id="pl318" class="number-input form-control" type="number"></td>
+                                <th class="player-score" id="player13t" scope="row"><input id="player13" class="player-input form-control" type="text" placeholder="Name" onchange="addPlayer(this.id)"></th>
+                                <td class="player-score"><input id="pl310" class="number-input form-control" type="number" onchange="addScore()"></td>
+                                <td class="player-score"><input id="pl311" class="number-input form-control" type="number" onchange="addScore()"></td>
+                                <td class="player-score"><input id="pl312" class="number-input form-control" type="number" onchange="addScore()"></td>
+                                <td class="player-score"><input id="pl313" class="number-input form-control" type="number" onchange="addScore()"></td>
+                                <td class="player-score"><input id="pl314" class="number-input form-control" type="number" onchange="addScore()"></td>
+                                <td class="player-score"><input id="pl315" class="number-input form-control" type="number" onchange="addScore()"></td>
+                                <td class="player-score"><input id="pl316" class="number-input form-control" type="number" onchange="addScore()"></td>
+                                <td class="player-score"><input id="pl317" class="number-input form-control" type="number" onchange="addScore()"></td>
+                                <td class="player-score"><input id="pl318" class="number-input form-control" type="number" onchange="addScore()"></td>
                                 <td id="pl3in"></td>
                                 <td id="pl3total"></td>
                               </tr>
                               <tr>
-                                <th id="player4" scope="row"><i class="bi bi-person-plus"></i></th>
-                                <td class="player-score"><input id="pl410" class="number-input form-control" type="number"></td>
-                                <td class="player-score"><input id="pl411" class="number-input form-control" type="number"></td>
-                                <td class="player-score"><input id="pl412" class="number-input form-control" type="number"></td>
-                                <td class="player-score"><input id="pl413" class="number-input form-control" type="number"></td>
-                                <td class="player-score"><input id="pl414" class="number-input form-control" type="number"></td>
-                                <td class="player-score"><input id="pl415" class="number-input form-control" type="number"></td>
-                                <td class="player-score"><input id="pl416" class="number-input form-control" type="number"></td>
-                                <td class="player-score"><input id="pl417" class="number-input form-control" type="number"></td>
-                                <td class="player-score"><input  id="pl418"class="number-input form-control" type="number"></td>
+                                <th class="player-score" id="player14t" scope="row"><input id="player14" class="player-input form-control" type="text" placeholder="Name" onchange="addPlayer(this.id)"></th>
+                                <td class="player-score"><input id="pl410" class="number-input form-control" type="number" onchange="addScore()"></td>
+                                <td class="player-score"><input id="pl411" class="number-input form-control" type="number" onchange="addScore()"></td>
+                                <td class="player-score"><input id="pl412" class="number-input form-control" type="number" onchange="addScore()"></td>
+                                <td class="player-score"><input id="pl413" class="number-input form-control" type="number" onchange="addScore()"></td>
+                                <td class="player-score"><input id="pl414" class="number-input form-control" type="number" onchange="addScore()"></td>
+                                <td class="player-score"><input id="pl415" class="number-input form-control" type="number" onchange="addScore()"></td>
+                                <td class="player-score"><input id="pl416" class="number-input form-control" type="number" onchange="addScore()"></td>
+                                <td class="player-score"><input id="pl417" class="number-input form-control" type="number" onchange="addScore()"></td>
+                                <td class="player-score"><input  id="pl418"class="number-input form-control" type="number" onchange="addScore()"></td>
                                 <td id="pl4in"></td>
                                 <td id="pl4total"></td>
                               </tr>
