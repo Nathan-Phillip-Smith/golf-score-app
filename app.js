@@ -78,77 +78,47 @@ async function teeSelect(clickedId) {
                     yardage: box.yards,
                     par: box.par,
                     handicap: box.hcp,
-                    player1: 0,
-                    player2: 0,
-                    player3: 0,
-                    player4: 0
             })
             }
         })
     })
 
 
-
-    render(correctHoles);
+    
+    renderAPI(correctHoles);
+    renderPlayers()
     };
 
 // select tee functions end
 
-// populate card functions
+// populate API portion of card functions
 
-async function render(correctHoles) {
+async function renderAPI(correctHoles) {
     // declarations 
     let frontHoles = document.getElementById('front-holes');
     let frontYardage = document.getElementById('front-yardage');
     let frontPar = document.getElementById('front-par');
     let frontHandicap = document.getElementById('front-handicap');
-    let frontPlayer1 = document.getElementById('front-player1');
-    let frontPlayer2 = document.getElementById('front-player2');
-    let frontPlayer3 = document.getElementById('front-player3');
-    let frontPlayer4 = document.getElementById('front-player4');
     let backHoles = document.getElementById('back-holes');
     let backYardage = document.getElementById('back-yardage');
     let backPar = document.getElementById('back-par');
     let backHandicap = document.getElementById('back-handicap');
-    let backPlayer1 = document.getElementById('back-player1');
-    let backPlayer2 = document.getElementById('back-player2');
-    let backPlayer3 = document.getElementById('back-player3');
-    let backPlayer4 = document.getElementById('back-player4');
+    
 
     let frontHolesHTML = `<th scope="col">Hole</th>`
     let frontYardageHTML= `<th scope="row">Yardage</th>`
     let frontParHTML = `<th scope="row">Par</th>`
     let frontHandicapHTML = `<th scope="row">Handicap</th>`
-    let frontPlayer1HTML = `<th class="player-score" id="player1t" scope="row"><input id="player1" class="player-input form-control" type="text" placeholder="Name" onchange="addPlayer(this.id)"></th>`
-    let frontPlayer2HTML = `<th class="player-score" id="player2t" scope="row"><input id="player2" class="player-input form-control" type="text" placeholder="Name" onchange="addPlayer(this.id)"></th>`
-    let frontPlayer3HTML = `<th class="player-score" id="player3t" scope="row"><input id="player3" class="player-input form-control" type="text" placeholder="Name" onchange="addPlayer(this.id)"></th>`
-    let frontPlayer4HTML = `<th class="player-score" id="player4t" scope="row"><input id="player4" class="player-input form-control" type="text" placeholder="Name" onchange="addPlayer(this.id)"></th>`
     let backHolesHTML = `<th scope="col">Hole</th>`
     let backYardageHTML = `<th scope="row">Yardage</th>`
     let backParHTML = `<th scope="row">Par</th>`
     let backHandicapHTML = `<th scope="row">Handicap</th>`
-    let backPlayer1HTML = `<th class="player-score" id="player11t" scope="row"><input id="player11" class="player-input form-control" type="text" placeholder="Name" onchange="addPlayer(this.id)"></th>`
-    let backPlayer2HTML = `<th class="player-score" id="player12t" scope="row"><input id="player12" class="player-input form-control" type="text" placeholder="Name" onchange="addPlayer(this.id)"></th>`
-    let backPlayer3HTML = `<th class="player-score" id="player13t" scope="row"><input id="player13" class="player-input form-control" type="text" placeholder="Name" onchange="addPlayer(this.id)"></th>`
-    let backPlayer4HTML = `<th class="player-score" id="player14t" scope="row"><input id="player14" class="player-input form-control" type="text" placeholder="Name" onchange="addPlayer(this.id)"></th>`
     let outYardage = 0;
     let inYardage = 0;
     let totalYardage = 0;
     let outPar = 0;
     let inPar = 0;
     let totalPar = 0;
-    let outPlayer1 = 0;
-    let inPlayer1 = 0;
-    let totalPlayer1 = 0;
-    let outPlayer2 = 0;
-    let inPlayer2 = 0;
-    let totalPlayer2 = 0;
-    let outPlayer3 = 0;
-    let inPlayer3 = 0;
-    let totalPlayer3 = 0;
-    let outPlayer4 = 0;
-    let inPlayer4 = 0;
-    let totalPlayer4 = 0;
     // declarations end
     document.getElementById('front-title').style.display = 'initial';
     document.getElementById('back-title').style.display = 'initial';
@@ -168,55 +138,123 @@ async function render(correctHoles) {
             frontYardageHTML += `<td>${correctHoles[i].yardage}</td>`
             frontParHTML += `<td>${correctHoles[i].par}</td>`
             frontHandicapHTML += `<td>${correctHoles[i].handicap}</td>`
-            frontPlayer1HTML += `<td>${correctHoles[i].player1}</td>`
-            frontPlayer2HTML += `<td>${correctHoles[i].player2}</td>`
-            frontPlayer3HTML += `<td>${correctHoles[i].player3}</td>`
-            frontPlayer4HTML += `<td>${correctHoles[i].player4}</td>`
             outYardage += correctHoles[i].yardage;
             outPar += correctHoles[i].par
-            outPlayer1 += correctHoles[i].player1
             totalYardage += correctHoles[i].yardage
             totalPar += correctHoles[i].par
-            totalPlayer1 += correctHoles[i].player1
         } else {
             backHolesHTML += `<th scope="col">${i + 1}</th>`
             backYardageHTML += `<td>${correctHoles[i].yardage}</td>`
             backParHTML += `<td>${correctHoles[i].par}</td>`
             backHandicapHTML += `<td>${correctHoles[i].handicap}</td>`
-            backPlayer1HTML += `<td>${correctHoles[i].player1}</td>`
-            backPlayer2HTML += `<td>${correctHoles[i].player2}</td>`
-            backPlayer3HTML += `<td>${correctHoles[i].player3}</td>`
-            backPlayer4HTML += `<td>${correctHoles[i].player4}</td>`
             inYardage += correctHoles[i].yardage;
             inPar += correctHoles[i].par
-            inPlayer1 += correctHoles[i].player1
             totalYardage += correctHoles[i].yardage
             totalPar += correctHoles[i].par
-            totalPlayer1 += correctHoles[i].player1
         }
     }
     frontHoles.innerHTML = frontHolesHTML + `<th scope="col">Out</th>`;
     frontYardage.innerHTML = frontYardageHTML + `<td>${outYardage}</td>`;
     frontPar.innerHTML = frontParHTML + `<td>${outPar}</td>`;
     frontHandicap.innerHTML = frontHandicapHTML + `<td></td>`;
-    frontPlayer1.innerHTML = frontPlayer1HTML + `<td>${outPlayer1}</td>`;
-    frontPlayer2.innerHTML = frontPlayer2HTML + `<td>${outPlayer2}</td>`;
-    frontPlayer3.innerHTML = frontPlayer3HTML + `<td>${outPlayer3}</td>`;
-    frontPlayer4.innerHTML = frontPlayer4HTML + `<td>${outPlayer4}</td>`;
     backHoles.innerHTML = backHolesHTML + `<th scope="col">In</th><th scope="col">Total</th>`;
     backYardage.innerHTML = backYardageHTML + `<td>${inYardage}</td><td>${totalYardage}</td>`;
     backPar.innerHTML = backParHTML + `<td>${inPar}</td><td>${totalPar}</td>`;
     backHandicap.innerHTML = backHandicapHTML + `<td></td><td></td>`;
+
+}
+  
+
+// populate API portion of card functions end
+
+// populate Players portion of card functions
+const players = [] 
+for (let i = 0; i < 18; i++) {
+    players.push({
+        player1: 0,
+        player2: 0,
+        player3: 0,
+        player4: 0
+    })
+}
+
+function renderPlayers() {
+    // player declarations
+    let frontPlayer1 = document.getElementById('front-player1');
+    let frontPlayer2 = document.getElementById('front-player2');
+    let frontPlayer3 = document.getElementById('front-player3');
+    let frontPlayer4 = document.getElementById('front-player4');
+    let backPlayer1 = document.getElementById('back-player1');
+    let backPlayer2 = document.getElementById('back-player2');
+    let backPlayer3 = document.getElementById('back-player3');
+    let backPlayer4 = document.getElementById('back-player4');
+
+    let frontPlayer1HTML = `<th class="player-score" id="player1t" scope="row"><input id="player1" class="player-input form-control" type="text" placeholder="Name" onchange="addPlayer(this.id)"></th>`
+    let frontPlayer2HTML = `<th class="player-score" id="player2t" scope="row"><input id="player2" class="player-input form-control" type="text" placeholder="Name" onchange="addPlayer(this.id)"></th>`
+    let frontPlayer3HTML = `<th class="player-score" id="player3t" scope="row"><input id="player3" class="player-input form-control" type="text" placeholder="Name" onchange="addPlayer(this.id)"></th>`
+    let frontPlayer4HTML = `<th class="player-score" id="player4t" scope="row"><input id="player4" class="player-input form-control" type="text" placeholder="Name" onchange="addPlayer(this.id)"></th>`
+    let backPlayer1HTML = `<th class="player-score" id="player11t" scope="row"><input id="player11" class="player-input form-control" type="text" placeholder="Name" onchange="addPlayer(this.id)"></th>`
+    let backPlayer2HTML = `<th class="player-score" id="player12t" scope="row"><input id="player12" class="player-input form-control" type="text" placeholder="Name" onchange="addPlayer(this.id)"></th>`
+    let backPlayer3HTML = `<th class="player-score" id="player13t" scope="row"><input id="player13" class="player-input form-control" type="text" placeholder="Name" onchange="addPlayer(this.id)"></th>`
+    let backPlayer4HTML = `<th class="player-score" id="player14t" scope="row"><input id="player14" class="player-input form-control" type="text" placeholder="Name" onchange="addPlayer(this.id)"></th>`
+    let outPlayer1 = 0;
+    let inPlayer1 = 0;
+    let totalPlayer1 = 0;
+    let outPlayer2 = 0;
+    let inPlayer2 = 0;
+    let totalPlayer2 = 0;
+    let outPlayer3 = 0;
+    let inPlayer3 = 0;
+    let totalPlayer3 = 0;
+    let outPlayer4 = 0;
+    let inPlayer4 = 0;
+    let totalPlayer4 = 0;
+    // player declarations end
+
+    for (let i = 0; i < players.length; i++) {
+        if (i < 9) {
+            frontPlayer1HTML += `<td>${players[i].player1}</td>`
+            frontPlayer2HTML += `<td>${players[i].player2}</td>`
+            frontPlayer3HTML += `<td>${players[i].player3}</td>`
+            frontPlayer4HTML += `<td>${players[i].player4}</td>`
+            outPlayer1 += players[i].player1
+            totalPlayer1 += players[i].player1
+            outPlayer2 += players[i].player2
+            totalPlayer2 += players[i].player2
+            outPlayer3 += players[i].player3
+            totalPlayer3 += players[i].player3
+            outPlayer4 += players[i].player4
+            totalPlayer4 += players[i].player4
+        } else {
+            
+            backPlayer1HTML += `<td>${players[i].player1}</td>`
+            backPlayer2HTML += `<td>${players[i].player2}</td>`
+            backPlayer3HTML += `<td>${players[i].player3}</td>`
+            backPlayer4HTML += `<td>${players[i].player4}</td>`
+            inPlayer1 += players[i].player1
+            totalPlayer1 += players[i].player1
+            inPlayer2 += players[i].player2
+            totalPlayer2 += players[i].player2
+            inPlayer3 += players[i].player3
+            totalPlayer3 += players[i].player3
+            inPlayer4 += players[i].player4
+            totalPlayer4 += players[i].player4
+        }
+    }
+    
+    frontPlayer1.innerHTML = frontPlayer1HTML + `<td>${outPlayer1}</td>`;
+    frontPlayer2.innerHTML = frontPlayer2HTML + `<td>${outPlayer2}</td>`;
+    frontPlayer3.innerHTML = frontPlayer3HTML + `<td>${outPlayer3}</td>`;
+    frontPlayer4.innerHTML = frontPlayer4HTML + `<td>${outPlayer4}</td>`;
+    
     backPlayer1.innerHTML = backPlayer1HTML + `<td>${inPlayer1}</td><td>${totalPlayer1}</td>`;
     backPlayer2.innerHTML = backPlayer2HTML + `<td>${inPlayer2}</td><td>${totalPlayer2}</td>`;
     backPlayer3.innerHTML = backPlayer3HTML + `<td>${inPlayer3}</td><td>${totalPlayer3}</td>`;
     backPlayer4.innerHTML = backPlayer4HTML + `<td>${inPlayer4}</td><td>${totalPlayer4}</td>`;
 
-
 }
-  
 
-// populate card functions end
+// populate Players portion of card functions end
 
 
 
@@ -298,7 +336,7 @@ function addPlayer(clickedId) {
     
 }
 
-function addScore() {
+function addScoreP1(clickedId) {
   
 
 }
