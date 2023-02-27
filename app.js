@@ -53,19 +53,14 @@ async function getTee(){
     document.getElementById('tee-title').innerHTML = teeHTML;
 };
 
-function teeSelect(clickedId) {
+async function teeSelect(clickedId) {
     // populates tee title then calls populate passing it the tee color
     const teeTitle = document.getElementById('tee-title');
     let color = document.getElementById(clickedId).value
     teeTitle.innerHTML = "Tee Box: " + document.getElementById(clickedId).value; 
-    populate(color);
-    };
 
-// select tee functions end
 
-// populate card functions
-
-async function populate(teeColor) {
+ 
     let course;
     try {
         course = await loadCourse();
@@ -76,127 +71,223 @@ async function populate(teeColor) {
     let correctHoles = []
     course.data.holes.forEach(hole => {
         hole.teeBoxes.forEach(box => {
-            if (box.teeColorType === teeColor) {
-                correctHoles.push(box)
+            if (box.teeColorType === color) {
+                correctHoles.push({
+                    id: box.courseHoleId,
+                    name: '',
+                    yardage: box.yards,
+                    par: box.par,
+                    handicap: box.hcp,
+                    player1: 0,
+                    player2: 0,
+                    player3: 0,
+                    player4: 0
+            })
             }
         })
     })
-    // loop through correctholes and fill in card
-    console.log(correctHoles)
-    console.log(teeColor)
-    for (let i = 0; i < correctHoles.length; i++) {
-        let hole = correctHoles[i]
-        let position = i + 1;
-        let yardage = document.getElementById(`y${position}`);
-        let par = document.getElementById(`p${position}`);
-        let handicap = document.getElementById(`h${position}`);
-        yardage.innerHTML = hole.yards;
-        par.innerHTML = hole.par;
-        handicap.innerHTML = hole.hcp;
+
+
+
+    render(correctHoles);
+    };
+
+// select tee functions end
+
+// populate card functions
+
+async function render(correctHoles) {
+    // declarations 
+    let frontHoles = document.getElementById('front-holes');
+    let frontYardage = document.getElementById('front-yardage');
+    let frontPar = document.getElementById('front-par');
+    let frontHandicap = document.getElementById('front-handicap');
+    let frontPlayer1 = document.getElementById('front-player1');
+    let frontPlayer2 = document.getElementById('front-player2');
+    let frontPlayer3 = document.getElementById('front-player3');
+    let frontPlayer4 = document.getElementById('front-player4');
+    let backHoles = document.getElementById('back-holes');
+    let backYardage = document.getElementById('back-yardage');
+    let backPar = document.getElementById('back-par');
+    let backHandicap = document.getElementById('back-handicap');
+    let backPlayer1 = document.getElementById('back-player1');
+    let backPlayer2 = document.getElementById('back-player2');
+    let backPlayer3 = document.getElementById('back-player3');
+    let backPlayer4 = document.getElementById('back-player4');
+
+    let frontHolesHTML = `<th scope="col">Hole</th>`
+    let frontYardageHTML= `<th scope="row">Yardage</th>`
+    let frontParHTML = `<th scope="row">Par</th>`
+    let frontHandicapHTML = `<th scope="row">Handicap</th>`
+    let frontPlayer1HTML = `<th class="player-score" id="player1t" scope="row"><input id="player1" class="player-input form-control" type="text" placeholder="Name" onchange="addPlayer(this.id)"></th>`
+    let frontPlayer2HTML = `<th class="player-score" id="player2t" scope="row"><input id="player2" class="player-input form-control" type="text" placeholder="Name" onchange="addPlayer(this.id)"></th>`
+    let frontPlayer3HTML = `<th class="player-score" id="player3t" scope="row"><input id="player3" class="player-input form-control" type="text" placeholder="Name" onchange="addPlayer(this.id)"></th>`
+    let frontPlayer4HTML = `<th class="player-score" id="player4t" scope="row"><input id="player4" class="player-input form-control" type="text" placeholder="Name" onchange="addPlayer(this.id)"></th>`
+    let backHolesHTML = `<th scope="col">Hole</th>`
+    let backYardageHTML = `<th scope="row">Yardage</th>`
+    let backParHTML = `<th scope="row">Par</th>`
+    let backHandicapHTML = `<th scope="row">Handicap</th>`
+    let backPlayer1HTML = `<th class="player-score" id="player11t" scope="row"><input id="player11" class="player-input form-control" type="text" placeholder="Name" onchange="addPlayer(this.id)"></th>`
+    let backPlayer2HTML = `<th class="player-score" id="player12t" scope="row"><input id="player12" class="player-input form-control" type="text" placeholder="Name" onchange="addPlayer(this.id)"></th>`
+    let backPlayer3HTML = `<th class="player-score" id="player13t" scope="row"><input id="player13" class="player-input form-control" type="text" placeholder="Name" onchange="addPlayer(this.id)"></th>`
+    let backPlayer4HTML = `<th class="player-score" id="player14t" scope="row"><input id="player14" class="player-input form-control" type="text" placeholder="Name" onchange="addPlayer(this.id)"></th>`
+    let outYardage = 0;
+    let inYardage = 0;
+    let totalYardage = 0;
+    let outPar = 0;
+    let inPar = 0;
+    let totalPar = 0;
+    let outPlayer1 = 0;
+    let inPlayer1 = 0;
+    let totalPlayer1 = 0;
+    let outPlayer2 = 0;
+    let inPlayer2 = 0;
+    let totalPlayer2 = 0;
+    let outPlayer3 = 0;
+    let inPlayer3 = 0;
+    let totalPlayer3 = 0;
+    let outPlayer4 = 0;
+    let inPlayer4 = 0;
+    let totalPlayer4 = 0;
+    // declarations end
+    document.getElementById('front-title').style.display = 'initial';
+    document.getElementById('back-title').style.display = 'initial';
+
+    let course;
+    try {
+        course = await loadCourse();
+    }catch (error) {
+        console.log(`ERROR: ${error}`);
     }
-    document.getElementById(`hout`).innerHTML = '';
-    document.getElementById(`hin`).innerHTML = '';
-    document.getElementById(`htotal`).innerHTML = '';
-    calcOut();
-    calcIn();
-    calcTotal();
+    
+    // loop through correctHoles and build out the card
+    console.log(correctHoles)
+    for (let i = 0; i < correctHoles.length; i++) {
+        if (i < 9) {
+            frontHolesHTML += `<th scope="col">${i + 1}</th>`
+            frontYardageHTML += `<td>${correctHoles[i].yardage}</td>`
+            frontParHTML += `<td>${correctHoles[i].par}</td>`
+            frontHandicapHTML += `<td>${correctHoles[i].handicap}</td>`
+            frontPlayer1HTML += `<td>${correctHoles[i].player1}</td>`
+            frontPlayer2HTML += `<td>${correctHoles[i].player2}</td>`
+            frontPlayer3HTML += `<td>${correctHoles[i].player3}</td>`
+            frontPlayer4HTML += `<td>${correctHoles[i].player4}</td>`
+            outYardage += correctHoles[i].yardage;
+            outPar += correctHoles[i].par
+            outPlayer1 += correctHoles[i].player1
+            totalYardage += correctHoles[i].yardage
+            totalPar += correctHoles[i].par
+            totalPlayer1 += correctHoles[i].player1
+        } else {
+            backHolesHTML += `<th scope="col">${i + 1}</th>`
+            backYardageHTML += `<td>${correctHoles[i].yardage}</td>`
+            backParHTML += `<td>${correctHoles[i].par}</td>`
+            backHandicapHTML += `<td>${correctHoles[i].handicap}</td>`
+            backPlayer1HTML += `<td>${correctHoles[i].player1}</td>`
+            backPlayer2HTML += `<td>${correctHoles[i].player2}</td>`
+            backPlayer3HTML += `<td>${correctHoles[i].player3}</td>`
+            backPlayer4HTML += `<td>${correctHoles[i].player4}</td>`
+            inYardage += correctHoles[i].yardage;
+            inPar += correctHoles[i].par
+            inPlayer1 += correctHoles[i].player1
+            totalYardage += correctHoles[i].yardage
+            totalPar += correctHoles[i].par
+            totalPlayer1 += correctHoles[i].player1
+        }
+    }
+    frontHoles.innerHTML = frontHolesHTML + `<th scope="col">Out</th>`;
+    frontYardage.innerHTML = frontYardageHTML + `<td>${outYardage}</td>`;
+    frontPar.innerHTML = frontParHTML + `<td>${outPar}</td>`;
+    frontHandicap.innerHTML = frontHandicapHTML + `<td></td>`;
+    frontPlayer1.innerHTML = frontPlayer1HTML + `<td>${outPlayer1}</td>`;
+    frontPlayer2.innerHTML = frontPlayer2HTML + `<td>${outPlayer2}</td>`;
+    frontPlayer3.innerHTML = frontPlayer3HTML + `<td>${outPlayer3}</td>`;
+    frontPlayer4.innerHTML = frontPlayer4HTML + `<td>${outPlayer4}</td>`;
+    backHoles.innerHTML = backHolesHTML + `<th scope="col">In</th><th scope="col">Total</th>`;
+    backYardage.innerHTML = backYardageHTML + `<td>${inYardage}</td><td>${totalYardage}</td>`;
+    backPar.innerHTML = backParHTML + `<td>${inPar}</td><td>${totalPar}</td>`;
+    backHandicap.innerHTML = backHandicapHTML + `<td></td><td></td>`;
+    backPlayer1.innerHTML = backPlayer1HTML + `<td>${inPlayer1}</td><td>${totalPlayer1}</td>`;
+    backPlayer2.innerHTML = backPlayer2HTML + `<td>${inPlayer2}</td><td>${totalPlayer2}</td>`;
+    backPlayer3.innerHTML = backPlayer3HTML + `<td>${inPlayer3}</td><td>${totalPlayer3}</td>`;
+    backPlayer4.innerHTML = backPlayer4HTML + `<td>${inPlayer4}</td><td>${totalPlayer4}</td>`;
+
+
 }
+  
 
 // populate card functions end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // calculate functions
 
 async function calcOut(){
-    let totaly = 0
-    let totalp = 0
-    let totalpl1 = 0
-    let totalpl2 = 0
-    let totalpl3 = 0
-    let totalpl4 = 0
-    for (let i = 0; i < 9; i++) {
-        let position = i + 1;
-        let yardage = document.getElementById(`y${position}`);
-        let par = document.getElementById(`p${position}`);
-        let player1 = document.getElementById(`pl1${position}`);
-        let player2 = document.getElementById(`pl2${position}`);
-        let player3 = document.getElementById(`pl3${position}`);
-        let player4 = document.getElementById(`pl4${position}`);
-        totaly += Number(yardage.innerHTML);
-        totalp += Number(par.innerHTML);
-        totalpl1 += Number(player1.value);
-        totalpl2 += Number(player2.value);
-        totalpl3 += Number(player3.value);
-        totalpl4 += Number(player4.value);
-    }
-    document.getElementById(`yout`).innerHTML = totaly;
-    document.getElementById(`pout`).innerHTML = totalp;
-    if(totalpl1 !== 0){document.getElementById(`pl1out`).innerHTML = totalpl1;}
-    if(totalpl2 !== 0){document.getElementById(`pl2out`).innerHTML = totalpl2;}
-    if(totalpl3 !== 0){document.getElementById(`pl3out`).innerHTML = totalpl3;}
-    if(totalpl4 !== 0){document.getElementById(`pl4out`).innerHTML = totalpl4;} 
+   
 }
 
 async function calcIn(){
-    let totaly = 0
-    let totalp = 0
-    let totalpl1 = 0
-    let totalpl2 = 0
-    let totalpl3 = 0
-    let totalpl4 = 0
-    for (let i = 9; i < 18; i++) {
-        let position = i + 1;
-        let yardage = document.getElementById(`y${position}`);
-        let par = document.getElementById(`p${position}`);
-        let player1 = document.getElementById(`pl1${position}`);
-        let player2 = document.getElementById(`pl2${position}`);
-        let player3 = document.getElementById(`pl3${position}`);
-        let player4 = document.getElementById(`pl4${position}`);
-        totaly += Number(yardage.innerHTML);
-        totalp += Number(par.innerHTML);
-        totalpl1 += Number(player1.value);
-        totalpl2 += Number(player2.value);
-        totalpl3 += Number(player3.value);
-        totalpl4 += Number(player4.value);
-    }
-    document.getElementById(`yin`).innerHTML = totaly;
-    document.getElementById(`pin`).innerHTML = totalp;
-    if(totalpl1 !== 0){document.getElementById(`pl1in`).innerHTML = totalpl1;}
-    if(totalpl2 !== 0){document.getElementById(`pl2in`).innerHTML = totalpl2;}
-    if(totalpl3 !== 0){document.getElementById(`pl3in`).innerHTML = totalpl3;}
-    if(totalpl4 !== 0){document.getElementById(`pl4in`).innerHTML = totalpl4;} 
-    
+   
     
 }
 
 async function calcTotal(){
-    let totaly = 0
-    let totalp = 0
-    let totalpl1 = 0
-    let totalpl2 = 0
-    let totalpl3 = 0
-    let totalpl4 = 0
-    for (let i = 0; i < 18; i++) {
-        let position = i + 1;
-        let yardage = document.getElementById(`y${position}`);
-        let par = document.getElementById(`p${position}`);
-        let player1 = document.getElementById(`pl1${position}`);
-        let player2 = document.getElementById(`pl2${position}`);
-        let player3 = document.getElementById(`pl3${position}`);
-        let player4 = document.getElementById(`pl4${position}`);
-        totaly += Number(yardage.innerHTML);
-        totalp += Number(par.innerHTML);
-        totalpl1 += Number(player1.value);
-        totalpl2 += Number(player2.value);
-        totalpl3 += Number(player3.value);
-        totalpl4 += Number(player4.value);
-    }
-    document.getElementById(`ytotal`).innerHTML = totaly;
-    document.getElementById(`ptotal`).innerHTML = totalp;
-    if(totalpl1 !== 0){document.getElementById(`pl1total`).innerHTML = totalpl1;}
-    if(totalpl2 !== 0){document.getElementById(`pl2total`).innerHTML = totalpl2;}
-    if(totalpl3 !== 0){document.getElementById(`pl3total`).innerHTML = totalpl3;}
-    if(totalpl4 !== 0){document.getElementById(`pl4total`).innerHTML = totalpl4;} 
-    
+   
 }
 
 // calculate functions end
@@ -204,20 +295,20 @@ async function calcTotal(){
 // action functions
 
 function addPlayer(clickedId) {
-    let player = document.getElementById(clickedId + 't')
-    let name = document.getElementById(clickedId).value
-    player.innerHTML = name;
-    player.classList.remove('player-score')
+    
 }
 
 function addScore() {
-    calcIn();
-    calcOut();
-    calcTotal();
+  
 
 }
 
 // action functions end
+
+
+// if (document.getelementbyid(player2t) !== undefined){
+    // create player 2
+    // same for player 3 and 4
 
 
 

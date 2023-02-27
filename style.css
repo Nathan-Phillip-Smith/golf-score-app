@@ -67,8 +67,9 @@ body {
     width: 100%;
     background-color: var(--color-2);
 }
-.front-title {
+#front-title {
     font-size: 30px;
+    display: none;
 }
 #course-title {
     width: 100%;
@@ -105,13 +106,17 @@ body {
 .number-input {
     border: none;
 }
+.player-input {
+    border: none;
+}
 
 /* front table area end */
 
 /* back title area */
 
-.back-title {
+#back-title {
     font-size: 30px;
+    display: none;
 }
 
 /* back title area end */

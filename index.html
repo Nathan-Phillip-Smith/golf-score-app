@@ -11,6 +11,9 @@
 </head>
 <body>
     <div class="container">
+
+      <!-- header -->
+
         <div class="row">
             <div class="col-lg-12" id="header">
                 <div class="logo-container">
@@ -23,6 +26,10 @@
             </div>
         </div>
         <div class="row">
+
+      <!-- header end -->
+
+      <!-- course title -->
             <div class="col-lg-12 card-title-container">
                 <div id="course-title" >
                     <select class="form-control" id="course-select">
@@ -40,266 +47,70 @@
                   
               </div>
           </div>
-      </div>
+        </div>
+
+      <!-- course title end -->
+
+      <!-- score card -->
         
         <div class="row">
             <div class="col-lg-12 card-title-container">
-                <div id="options-container" class="front-title">Front Nine</div>
+                <div id="front-title">Front Nine</div>
             </div>
         </div>
 
-        <div id="card">
+        <div id="card">         
           <div class="row" id="scorecard-container">
             <div class="col-lg-12" id="scorecard">
                 <div class="table-responsive">
                     <table class="table table-bordered">
-                        <thead>
-                            <tr>
-                              <th scope="col">Hole</th>
-                              <th scope="col">1</th>
-                              <th scope="col">2</th>
-                              <th scope="col">3</th>
-                              <th scope="col">4</th>
-                              <th scope="col">5</th>
-                              <th scope="col">6</th>
-                              <th scope="col">7</th>
-                              <th scope="col">8</th>
-                              <th scope="col">9</th>
-                              <th scope="col">Out</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            <tr>
-                              <th scope="row">Yardage</th>
-                              <td id="y1">-</td>
-                              <td id="y2">-</td>
-                              <td id="y3">-</td>
-                              <td id="y4">-</td>
-                              <td id="y5">-</td>
-                              <td id="y6">-</td>
-                              <td id="y7">-</td>
-                              <td id="y8">-</td>
-                              <td id="y9">-</td>
-                              <td id="yout">-</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Par</th>
-                                <td id="p1">-</td>
-                                <td id="p2">-</td>
-                                <td id="p3">-</td>
-                                <td id="p4">-</td>
-                                <td id="p5">-</td>
-                                <td id="p6">-</td>
-                                <td id="p7">-</td>
-                                <td id="p8">-</td>
-                                <td id="p9">-</td>
-                                <td id="pout">-</td>
-                              </tr>
-                              <tr>
-                                <th scope="row">Handicap</th>
-                                <td id="h1">-</td>
-                                <td id="h2">-</td>
-                                <td id="h3">-</td>
-                                <td id="h4">-</td>
-                                <td id="h5">-</td>
-                                <td id="h6">-</td>
-                                <td id="h7">-</td>
-                                <td id="h8">-</td>
-                                <td id="h9">-</td>
-                                <td id="hout">-</td>
-                              </tr>
-                              <tr>
-                                <th class="player-score" id="player1t" scope="row"><input id="player1" class="player-input form-control" type="text" placeholder="Name" onchange="addPlayer(this.id)"></th>
-                                <td class="player-score"><input id="pl11" class="number-input form-control" type="number" onchange="addScore()"></td>
-                                <td class="player-score"><input id="pl12" class="number-input form-control" type="number" onchange="addScore()"></td>
-                                <td class="player-score"><input id="pl13" class="number-input form-control" type="number" onchange="addScore()"></td>
-                                <td class="player-score"><input id="pl14" class="number-input form-control" type="number" onchange="addScore()"></td>
-                                <td class="player-score"><input id="pl15" class="number-input form-control" type="number" onchange="addScore()"></td>
-                                <td class="player-score"><input id="pl16" class="number-input form-control" type="number" onchange="addScore()"></td>
-                                <td class="player-score"><input id="pl17" class="number-input form-control" type="number" onchange="addScore()"></td>
-                                <td class="player-score"><input id="pl18" class="number-input form-control" type="number" onchange="addScore()"></td>
-                                <td class="player-score"><input id="pl19" class="number-input form-control" type="number" onchange="addScore()"></td>
-                                <td id="pl1out"></td>
-                              </tr>
-                              <tr>
-                                <th class="player-score" id="player2t" scope="row"><input id="player2" class="player-input form-control" type="text" placeholder="Name" onchange="addPlayer(this.id)"></th>
-                                <td class="player-score"><input id="pl21" class="number-input form-control" type="number" onchange="addScore()"></td>
-                                <td class="player-score"><input id="pl22" class="number-input form-control" type="number" onchange="addScore()"></td>
-                                <td class="player-score"><input id="pl23" class="number-input form-control" type="number" onchange="addScore()"></td>
-                                <td class="player-score"><input id="pl24" class="number-input form-control" type="number" onchange="addScore()"></td>
-                                <td class="player-score"><input id="pl25" class="number-input form-control" type="number" onchange="addScore()"></td>
-                                <td class="player-score"><input id="pl26" class="number-input form-control" type="number" onchange="addScore()"></td>
-                                <td class="player-score"><input id="pl27" class="number-input form-control" type="number" onchange="addScore()"></td>
-                                <td class="player-score"><input id="pl28" class="number-input form-control" type="number" onchange="addScore()"></td>
-                                <td class="player-score"><input id="pl29" class="number-input form-control" type="number" onchange="addScore()"></td>
-                                <td id="pl2out"></td>
-                              </tr>
-                              <tr>
-                                <th class="player-score" id="player3t" scope="row"><input id="player3" class="player-input form-control" type="text" placeholder="Name" onchange="addPlayer(this.id)"></th>
-                                <td class="player-score"><input id="pl31" class="number-input form-control" type="number" onchange="addScore()"></td>
-                                <td class="player-score"><input id="pl32" class="number-input form-control" type="number" onchange="addScore()"></td>
-                                <td class="player-score"><input id="pl33" class="number-input form-control" type="number" onchange="addScore()"></td>
-                                <td class="player-score"><input id="pl34" class="number-input form-control" type="number" onchange="addScore()"></td>
-                                <td class="player-score"><input id="pl35" class="number-input form-control" type="number" onchange="addScore()"></td>
-                                <td class="player-score"><input id="pl36" class="number-input form-control" type="number" onchange="addScore()"></td>
-                                <td class="player-score"><input id="pl37" class="number-input form-control" type="number" onchange="addScore()"></td>
-                                <td class="player-score"><input id="pl38" class="number-input form-control" type="number" onchange="addScore()"></td>
-                                <td class="player-score"><input id="pl39" class="number-input form-control" type="number" onchange="addScore()"></td>
-                                <td id="pl3out"></td>
-                              </tr>
-                              <tr>
-                                <th class="player-score" id="player4t" scope="row"><input id="player4" class="player-input form-control" type="text" placeholder="Name" onchange="addPlayer(this.id)"></th>
-                                <td class="player-score"><input id="pl41" class="number-input form-control" type="number" onchange="addScore()"></td>
-                                <td class="player-score"><input id="pl42" class="number-input form-control" type="number" onchange="addScore()"></td>
-                                <td class="player-score"><input id="pl43" class="number-input form-control" type="number" onchange="addScore()"></td>
-                                <td class="player-score"><input id="pl44" class="number-input form-control" type="number" onchange="addScore()"></td>
-                                <td class="player-score"><input id="pl45" class="number-input form-control" type="number" onchange="addScore()"></td>
-                                <td class="player-score"><input id="pl46" class="number-input form-control" type="number" onchange="addScore()"></td>
-                                <td class="player-score"><input id="pl47" class="number-input form-control" type="number" onchange="addScore()"></td>
-                                <td class="player-score"><input id="pl48" class="number-input form-control" type="number" onchange="addScore()"></td>
-                                <td class="player-score"><input id="pl49" class="number-input form-control" type="number" onchange="addScore()"></td>
-                                <td id="pl4out"></td>
-                              </tr>
-                          </tbody>
+                      <thead>
+                        <tr id="front-holes"></tr>
+                      </thead>
+                      <tbody>
+                        <tr id="front-yardage"></tr>
+                        <tr id="front-par"></tr>
+                        <tr id="front-handicap"></tr>
+                        <tr id="front-player1"></tr>
+                        <tr id="front-player2"></tr>
+                        <tr id="front-player3"></tr>
+                        <tr id="front-player4"></tr>
+                      </tbody>
                     </table>
                 </div>
             </div>
-        </div>
+          </div>
 
-        <div class="row">
+          <div class="row">
             <div class="col-lg-12 card-title-container">
-                <div id="options-container" class="back-title">Back Nine</div>
+                <div id="back-title">Back Nine</div>
             </div>
-        </div>
+          </div>
  
-        <div class="row" id="scorecard-container">
+          <div class="row" id="scorecard-container">
             <div class="col-lg-12" id="scorecard">
                 <div class="table-responsive">
                     <table class="table table-bordered">
-                        <thead>
-                            <tr>
-                                <th scope="col">Hole</th>
-                              <th scope="col">10</th>
-                              <th scope="col">11</th>
-                              <th scope="col">12</th>
-                              <th scope="col">13</th>
-                              <th scope="col">14</th>
-                              <th scope="col">15</th>
-                              <th scope="col">16</th>
-                              <th scope="col">17</th>
-                              <th scope="col">18</th>
-                              <th scope="col">In</th>
-                              <th scope="col">total</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            <tr>
-                              <th scope="row">Yardage</th>
-                              <td id="y10">-</td>
-                              <td id="y11">-</td>
-                              <td id="y12">-</td>
-                              <td id="y13">-</td>
-                              <td id="y14">-</td>
-                              <td id="y15">-</td>
-                              <td id="y16">-</td>
-                              <td id="y17">-</td>
-                              <td id="y18">-</td>
-                              <td id="yin">-</td>
-                              <td id="ytotal">-</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Par</th>
-                                <td id="p10">-</td>
-                                <td id="p11">-</td>
-                                <td id="p12">-</td>
-                                <td id="p13">-</td>
-                                <td id="p14">-</td>
-                                <td id="p15">-</td>
-                                <td id="p16">-</td>
-                                <td id="p17">-</td>
-                                <td id="p18">-</td>
-                                <td id="pin">-</td>
-                                <td id="ptotal">-</td>
-                              </tr>
-                              <tr>
-                                <th scope="row">Handicap</th>
-                                <td id="h10">-</td>
-                                <td id="h11">-</td>
-                                <td id="h12">-</td>
-                                <td id="h13">-</td>
-                                <td id="h14">-</td>
-                                <td id="h15">-</td>
-                                <td id="h16">-</td>
-                                <td id="h17">-</td>
-                                <td id="h18">-</td>
-                                <td id="hin">-</td>
-                                <td id="htotal">-</td>
-                              </tr>
-                              <tr>
-                                <th class="player-score" id="player11t" scope="row"><input id="player11" class="player-input form-control" type="text" placeholder="Name" onchange="addPlayer(this.id)"></th>
-                                <td class="player-score"><input id="pl110" class="number-input form-control" type="number" onchange="addScore()"></td>
-                                <td class="player-score"><input id="pl111" class="number-input form-control" type="number" onchange="addScore()"></td>
-                                <td class="player-score"><input id="pl112" class="number-input form-control" type="number" onchange="addScore()"></td>
-                                <td class="player-score"><input id="pl113" class="number-input form-control" type="number" onchange="addScore()"></td>
-                                <td class="player-score"><input id="pl114" class="number-input form-control" type="number" onchange="addScore()"></td>
-                                <td class="player-score"><input id="pl115" class="number-input form-control" type="number" onchange="addScore()"></td>
-                                <td class="player-score"><input id="pl116" class="number-input form-control" type="number" onchange="addScore()"></td>
-                                <td class="player-score"><input id="pl117" class="number-input form-control" type="number" onchange="addScore()"></td>
-                                <td class="player-score"><input id="pl118" class="number-input form-control" type="number" onchange="addScore()"></td>
-                                <td id="pl1in"></td>
-                                <td id="pl1total"></td>
-                              </tr>
-                              <tr>
-                                <th class="player-score" id="player12t" scope="row"><input id="player12" class="player-input form-control" type="text" placeholder="Name" onchange="addPlayer(this.id)"></th>
-                                <td class="player-score"><input id="pl210" class="number-input form-control" type="number" onchange="addScore()"></td>
-                                <td class="player-score"><input id="pl211" class="number-input form-control" type="number" onchange="addScore()"></td>
-                                <td class="player-score"><input id="pl212" class="number-input form-control" type="number" onchange="addScore()"></td>
-                                <td class="player-score"><input id="pl213" class="number-input form-control" type="number" onchange="addScore()"></td>
-                                <td class="player-score"><input id="pl214" class="number-input form-control" type="number" onchange="addScore()"></td>
-                                <td class="player-score"><input id="pl215" class="number-input form-control" type="number" onchange="addScore()"></td>
-                                <td class="player-score"><input id="pl216" class="number-input form-control" type="number" onchange="addScore()"></td>
-                                <td class="player-score"><input id="pl217" class="number-input form-control" type="number" onchange="addScore()"></td>
-                                <td class="player-score"><input id="pl218" class="number-input form-control" type="number" onchange="addScore()"></td>
-                                <td id="pl2in"></td>
-                                <td id="pl2total"></td>
-                              </tr>
-                              <tr>
-                                <th class="player-score" id="player13t" scope="row"><input id="player13" class="player-input form-control" type="text" placeholder="Name" onchange="addPlayer(this.id)"></th>
-                                <td class="player-score"><input id="pl310" class="number-input form-control" type="number" onchange="addScore()"></td>
-                                <td class="player-score"><input id="pl311" class="number-input form-control" type="number" onchange="addScore()"></td>
-                                <td class="player-score"><input id="pl312" class="number-input form-control" type="number" onchange="addScore()"></td>
-                                <td class="player-score"><input id="pl313" class="number-input form-control" type="number" onchange="addScore()"></td>
-                                <td class="player-score"><input id="pl314" class="number-input form-control" type="number" onchange="addScore()"></td>
-                                <td class="player-score"><input id="pl315" class="number-input form-control" type="number" onchange="addScore()"></td>
-                                <td class="player-score"><input id="pl316" class="number-input form-control" type="number" onchange="addScore()"></td>
-                                <td class="player-score"><input id="pl317" class="number-input form-control" type="number" onchange="addScore()"></td>
-                                <td class="player-score"><input id="pl318" class="number-input form-control" type="number" onchange="addScore()"></td>
-                                <td id="pl3in"></td>
-                                <td id="pl3total"></td>
-                              </tr>
-                              <tr>
-                                <th class="player-score" id="player14t" scope="row"><input id="player14" class="player-input form-control" type="text" placeholder="Name" onchange="addPlayer(this.id)"></th>
-                                <td class="player-score"><input id="pl410" class="number-input form-control" type="number" onchange="addScore()"></td>
-                                <td class="player-score"><input id="pl411" class="number-input form-control" type="number" onchange="addScore()"></td>
-                                <td class="player-score"><input id="pl412" class="number-input form-control" type="number" onchange="addScore()"></td>
-                                <td class="player-score"><input id="pl413" class="number-input form-control" type="number" onchange="addScore()"></td>
-                                <td class="player-score"><input id="pl414" class="number-input form-control" type="number" onchange="addScore()"></td>
-                                <td class="player-score"><input id="pl415" class="number-input form-control" type="number" onchange="addScore()"></td>
-                                <td class="player-score"><input id="pl416" class="number-input form-control" type="number" onchange="addScore()"></td>
-                                <td class="player-score"><input id="pl417" class="number-input form-control" type="number" onchange="addScore()"></td>
-                                <td class="player-score"><input  id="pl418"class="number-input form-control" type="number" onchange="addScore()"></td>
-                                <td id="pl4in"></td>
-                                <td id="pl4total"></td>
-                              </tr>
-                          </tbody>
+                      <thead>
+                        <tr id="back-holes"></tr>
+                      </thead>
+                      <tbody>
+                        <tr id="back-yardage"></tr>
+                        <tr id="back-par"></tr>
+                        <tr id="back-handicap"></tr>
+                        <tr id="back-player1"></tr>
+                        <tr id="back-player2"></tr>
+                        <tr id="back-player3"></tr>
+                        <tr id="back-player4"></tr>
+                      </tbody>
                     </table>
                 </div>
             </div>
           </div>
         </div>
-    </div>
 
-    
+      <!-- score card end -->
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>              
     <script src="app.js"></script>
 </body>
