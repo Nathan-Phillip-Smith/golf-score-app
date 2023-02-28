@@ -11,7 +11,7 @@
 }
 
 body {
-    background-image: url('/images/prism.png');
+    background-image: url('./images/prism.png');
     background-size: cover;
 }
 
