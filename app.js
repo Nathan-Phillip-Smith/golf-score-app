@@ -306,7 +306,6 @@ function reset() {
     player4 = undefined;
     select = document.getElementById('course-select');
     select.addEventListener('change', courseSelect);
-    
 }
 
 
