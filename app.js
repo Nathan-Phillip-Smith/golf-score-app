@@ -86,7 +86,6 @@ async function teeSelect(clickedId) {
 
     
     renderAPI(correctHoles);
-    renderPlayers()
     };
 
 // select tee functions end
@@ -167,186 +166,109 @@ async function renderAPI(correctHoles) {
 
 // populate API portion of card functions end
 
-// populate Players portion of card functions
-const players = [] 
-for (let i = 0; i < 18; i++) {
-    players.push({
-        player1: 0,
-        player2: 0,
-        player3: 0,
-        player4: 0
-    })
+// populate Players portion of card
+let frontBody = document.getElementById('front-body');
+let backBody = document.getElementById('back-body');
+class Player {
+    constructor(id, scores, playerNum) {
+        this.name = `<input id="${playerNum + 'Input'}" class="player-input form-control" type="text" placeholder="Name" onchange="updateName(this)">`;
+        this.id = id;
+        this.scores = scores;
+        this.playerNum = playerNum;
+        this.frontHTML = '';
+        this.backHTML = '';
+    }
 }
 
 function renderPlayers() {
-    // player declarations
-    let frontPlayer1 = document.getElementById('front-player1');
-    let frontPlayer2 = document.getElementById('front-player2');
-    let frontPlayer3 = document.getElementById('front-player3');
-    let frontPlayer4 = document.getElementById('front-player4');
-    let backPlayer1 = document.getElementById('back-player1');
-    let backPlayer2 = document.getElementById('back-player2');
-    let backPlayer3 = document.getElementById('back-player3');
-    let backPlayer4 = document.getElementById('back-player4');
-
-    let frontPlayer1HTML = `<th class="player-score" id="player1t" scope="row"><input id="player1" class="player-input form-control" type="text" placeholder="Name" onchange="addPlayer(this.id)"></th>`
-    let frontPlayer2HTML = `<th class="player-score" id="player2t" scope="row"><input id="player2" class="player-input form-control" type="text" placeholder="Name" onchange="addPlayer(this.id)"></th>`
-    let frontPlayer3HTML = `<th class="player-score" id="player3t" scope="row"><input id="player3" class="player-input form-control" type="text" placeholder="Name" onchange="addPlayer(this.id)"></th>`
-    let frontPlayer4HTML = `<th class="player-score" id="player4t" scope="row"><input id="player4" class="player-input form-control" type="text" placeholder="Name" onchange="addPlayer(this.id)"></th>`
-    let backPlayer1HTML = `<th class="player-score" id="player11t" scope="row"><input id="player11" class="player-input form-control" type="text" placeholder="Name" onchange="addPlayer(this.id)"></th>`
-    let backPlayer2HTML = `<th class="player-score" id="player12t" scope="row"><input id="player12" class="player-input form-control" type="text" placeholder="Name" onchange="addPlayer(this.id)"></th>`
-    let backPlayer3HTML = `<th class="player-score" id="player13t" scope="row"><input id="player13" class="player-input form-control" type="text" placeholder="Name" onchange="addPlayer(this.id)"></th>`
-    let backPlayer4HTML = `<th class="player-score" id="player14t" scope="row"><input id="player14" class="player-input form-control" type="text" placeholder="Name" onchange="addPlayer(this.id)"></th>`
-    let outPlayer1 = 0;
-    let inPlayer1 = 0;
-    let totalPlayer1 = 0;
-    let outPlayer2 = 0;
-    let inPlayer2 = 0;
-    let totalPlayer2 = 0;
-    let outPlayer3 = 0;
-    let inPlayer3 = 0;
-    let totalPlayer3 = 0;
-    let outPlayer4 = 0;
-    let inPlayer4 = 0;
-    let totalPlayer4 = 0;
-    // player declarations end
-
-    for (let i = 0; i < players.length; i++) {
-        if (i < 9) {
-            frontPlayer1HTML += `<td>${players[i].player1}</td>`
-            frontPlayer2HTML += `<td>${players[i].player2}</td>`
-            frontPlayer3HTML += `<td>${players[i].player3}</td>`
-            frontPlayer4HTML += `<td>${players[i].player4}</td>`
-            outPlayer1 += players[i].player1
-            totalPlayer1 += players[i].player1
-            outPlayer2 += players[i].player2
-            totalPlayer2 += players[i].player2
-            outPlayer3 += players[i].player3
-            totalPlayer3 += players[i].player3
-            outPlayer4 += players[i].player4
-            totalPlayer4 += players[i].player4
-        } else {
+    frontBody.innerHTML = '';
+    backBody.innerHTML = '';
+    let playerOut = 0;
+    let playerIn = 0;
+    let playerTotal = 0;
+    players.forEach(player => {
+        let playerOut = 0;
+        let playerIn = 0;
+        let playerTotal = 0;
+        player.frontHTML = `<tr><th id="${player.playerNum + 'name'}" class="player-score" scope="row">${player.name}</th>`
+        player.backHTML = `<tr><th id="${player.playerNum + 'name'}" class="player-score" scope="row">${player.name}</th>`
+        for (let i = 0; i < 18; i++) {
+            if (i < 9) {
+                player.frontHTML +=  `<td id="s${i + 1}" class="player-score"><input id="${player.playerNum + String(i)}" class="number-input form-control" type="number" value="${player.scores[i]}" onchange="addScore(this)"></td>`;
+                playerOut += player.scores[i];
+                playerTotal += player.scores[i];
+            } else {
+                player.backHTML += `<td id="s${i + 1}" class="player-score"><input id="${player.playerNum + String(i)}" class="number-input form-control" type="number" value="${player.scores[i]}" onchange="addScore(this)"></td>`;
+                playerIn += player.scores[i];
+                playerTotal += player.scores[i];
+            }
+        } 
+        player.frontHTML += `<td id="${player.playerNum}out">${playerOut}</td></tr>`;
+        player.backHTML += `<td id="${player.playerNum}in">${playerIn}</td><td id="${player.playerNum}total">${playerTotal}</td></tr>`;
+    })
+    players.forEach(player => {
+        frontBody.innerHTML += player.frontHTML;
+        backBody.innerHTML += player.backHTML;
+    })
             
-            backPlayer1HTML += `<td>${players[i].player1}</td>`
-            backPlayer2HTML += `<td>${players[i].player2}</td>`
-            backPlayer3HTML += `<td>${players[i].player3}</td>`
-            backPlayer4HTML += `<td>${players[i].player4}</td>`
-            inPlayer1 += players[i].player1
-            totalPlayer1 += players[i].player1
-            inPlayer2 += players[i].player2
-            totalPlayer2 += players[i].player2
-            inPlayer3 += players[i].player3
-            totalPlayer3 += players[i].player3
-            inPlayer4 += players[i].player4
-            totalPlayer4 += players[i].player4
-        }
-    }
-    
-    frontPlayer1.innerHTML = frontPlayer1HTML + `<td>${outPlayer1}</td>`;
-    frontPlayer2.innerHTML = frontPlayer2HTML + `<td>${outPlayer2}</td>`;
-    frontPlayer3.innerHTML = frontPlayer3HTML + `<td>${outPlayer3}</td>`;
-    frontPlayer4.innerHTML = frontPlayer4HTML + `<td>${outPlayer4}</td>`;
-    
-    backPlayer1.innerHTML = backPlayer1HTML + `<td>${inPlayer1}</td><td>${totalPlayer1}</td>`;
-    backPlayer2.innerHTML = backPlayer2HTML + `<td>${inPlayer2}</td><td>${totalPlayer2}</td>`;
-    backPlayer3.innerHTML = backPlayer3HTML + `<td>${inPlayer3}</td><td>${totalPlayer3}</td>`;
-    backPlayer4.innerHTML = backPlayer4HTML + `<td>${inPlayer4}</td><td>${totalPlayer4}</td>`;
-
 }
 
-// populate Players portion of card functions end
 
 
 
 
+// populate Players portion of card end
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// calculate functions
-
-async function calcOut(){
-   
-}
-
-async function calcIn(){
-   
-    
-}
-
-async function calcTotal(){
-   
-}
-
-// calculate functions end
 
 // action functions
+let player1;
+let player2;
+let player3;
+let player4;
+let players = [];
 
-function addPlayer(clickedId) {
-    
+
+
+function addPlayer() {
+    let newId = Math.random().toString(36).slice(2);
+    if (player1 === undefined) {
+        player1 = new Player(newId, [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0], 'p1');
+        players.push(player1)
+    } else if (player2 === undefined) {
+        player2 = new Player(newId, [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0], 'p2');
+        players.push(player2)
+    }else if (player3 === undefined) {
+        player3 = new Player(newId, [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0], 'p3');
+        players.push(player3)
+    } else if (player4 === undefined) {
+        player4 = new Player(newId, [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0], 'p4');
+        players.push(player4)
+    }
+   console.log(players);
+   
+    renderPlayers()
 }
 
-function addScoreP1(clickedId) {
-  
-
+function addScore(object,) {
+    let index = Number(object.id.split('').splice(2,2).join(''))
+    if (object.id[1] === '1') player1.scores[index] = Number(object.value);
+    if (object.id[1] === '2') player2.scores[index] = Number(object.value);
+    if (object.id[1] === '3') player3.scores[index] = Number(object.value);
+    if (object.id[1] === '4') player4.scores[index] = Number(object.value);
+    renderPlayers();
 }
 
 // action functions end
+function updateName(object) {
+    if (object.id === 'p1Input') player1.name = object.value;
+    if (object.id === 'p2Input') player2.name = object.value;
+    if (object.id === 'p3Input') player3.name = object.value;
+    if (object.id === 'p4Input') player4.name = object.value;
+    renderPlayers()
+}
 
 
-// if (document.getelementbyid(player2t) !== undefined){
-    // create player 2
-    // same for player 3 and 4
+
 
 
 

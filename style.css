@@ -87,6 +87,13 @@ body {
     display: flex;
     justify-content: center;
  }
+ .add-player {
+    font-size: 25px;
+    margin-left: 10px;
+ }
+ .add-player:hover {
+    cursor: pointer;
+ }
 
 /* front title area end */
 
@@ -100,14 +107,47 @@ body {
     justify-content: space-between;
 }
 .player-score {
-    padding: 0 !important;
     max-width: 50px;
 }
 .number-input {
     border: none;
+    height: 16px;
+    margin-top: 5px;
 }
 .player-input {
     border: none;
+    height: 16px;
+    margin-top: 5px;
+}
+.score {
+    display: flex;;
+}
+.buttons {
+    display: flex;
+    flex-direction: row;
+    margin-left: 10px;
+    height: fit-content;
+    margin-top: 6px;
+}
+.plus {
+    background-color: white;
+    height: 10px;
+    font-size: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    
+}
+.minus {
+    background-color: white;
+    height: 10px;
+    font-size: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    
 }
 
 /* front table area end */
