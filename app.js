@@ -12,8 +12,8 @@ const point = 'http://uxcobra.com/golfapi/course11819.txt';
 const hollow = 'http://uxcobra.com/golfapi/course18300.txt';
 const oaks = 'http://uxcobra.com/golfapi/course19002.txt';
 let url;
-const select = document.getElementById('course-select');
-select.addEventListener('change', courseSelect) ;
+let select = document.getElementById('course-select');
+select.addEventListener('change', courseSelect);
 
 function courseSelect() {
     // calls correct api then populates title and calls getTee function
@@ -183,9 +183,6 @@ class Player {
 function renderPlayers() {
     frontBody.innerHTML = '';
     backBody.innerHTML = '';
-    let playerOut = 0;
-    let playerIn = 0;
-    let playerTotal = 0;
     players.forEach(player => {
         let playerOut = 0;
         let playerIn = 0;
@@ -267,7 +264,50 @@ function updateName(object) {
     renderPlayers()
 }
 
-
+function reset() {
+    const teeTitle = document.getElementById('tee-title');
+    const courseTitle = document.getElementById('course-title');
+    teeTitle.innerHTML = '';
+    courseTitle.innerHTML = `<select class="form-control" id="course-select">
+    <option value="initial">--Select a Course--</option>
+    <option value="Thanksgiving Point">Thanksgiving Point</option>
+    <option value="Fox Hollow">Fox Hollow</option>
+    <option value="Spanish Oaks">Spanish Oaks</option>
+</select>`;
+    url = ''
+    teeHTML = `
+        <select class="form-control" id="tee-select" onchange="teeSelect(this.id)">
+            <option value="initial">--Select a Tee Box--</option>
+        `; 
+    document.getElementById('front-title').style.display = 'none';
+    document.getElementById('back-title').style.display = 'none';
+    let frontHoles = document.getElementById('front-holes');
+    let frontYardage = document.getElementById('front-yardage');
+    let frontPar = document.getElementById('front-par');
+    let frontHandicap = document.getElementById('front-handicap');
+    let backHoles = document.getElementById('back-holes');
+    let backYardage = document.getElementById('back-yardage');
+    let backPar = document.getElementById('back-par');
+    let backHandicap = document.getElementById('back-handicap');
+    frontHoles.innerHTML = '';
+    frontYardage.innerHTML = '';
+    frontPar.innerHTML = '';
+    frontHandicap.innerHTML = '';
+    backHoles.innerHTML = '';
+    backYardage.innerHTML = '';
+    backPar.innerHTML = '';
+    backHandicap.innerHTML = '';
+    frontBody.innerHTML = '';
+    backBody.innerHTML = '';
+    players = [];
+    player1 = undefined;
+    player2 = undefined;
+    player3 = undefined;
+    player4 = undefined;
+    select = document.getElementById('course-select');
+    select.addEventListener('change', courseSelect);
+    
+}
 
 
 
